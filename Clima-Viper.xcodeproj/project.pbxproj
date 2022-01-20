@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		FAD8FA132799B32B00402393 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8FA122799B32B00402393 /* AppDelegate.swift */; };
 		FAD8FA152799B32B00402393 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8FA142799B32B00402393 /* SceneDelegate.swift */; };
-		FAD8FA172799B32B00402393 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8FA162799B32B00402393 /* ViewController.swift */; };
 		FAD8FA1A2799B32B00402393 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD8FA182799B32B00402393 /* Main.storyboard */; };
 		FAD8FA1C2799B33000402393 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD8FA1B2799B33000402393 /* Assets.xcassets */; };
 		FAD8FA1F2799B33000402393 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD8FA1D2799B33000402393 /* LaunchScreen.storyboard */; };
@@ -19,7 +18,6 @@
 		FAD8FA0F2799B32B00402393 /* Clima-Viper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clima-Viper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD8FA122799B32B00402393 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD8FA142799B32B00402393 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FAD8FA162799B32B00402393 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FAD8FA192799B32B00402393 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAD8FA1B2799B33000402393 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAD8FA1E2799B33000402393 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,15 +54,86 @@
 		FAD8FA112799B32B00402393 /* Clima-Viper */ = {
 			isa = PBXGroup;
 			children = (
-				FAD8FA122799B32B00402393 /* AppDelegate.swift */,
-				FAD8FA142799B32B00402393 /* SceneDelegate.swift */,
-				FAD8FA162799B32B00402393 /* ViewController.swift */,
-				FAD8FA182799B32B00402393 /* Main.storyboard */,
-				FAD8FA1B2799B33000402393 /* Assets.xcassets */,
-				FAD8FA1D2799B33000402393 /* LaunchScreen.storyboard */,
-				FAD8FA202799B33000402393 /* Info.plist */,
+				FAD8FA262799B8AD00402393 /* MainModule */,
 			);
 			path = "Clima-Viper";
+			sourceTree = "<group>";
+		};
+		FAD8FA262799B8AD00402393 /* MainModule */ = {
+			isa = PBXGroup;
+			children = (
+				FAD8FA2F2799B98000402393 /* AppSceneDelegate */,
+				FAD8FA2E2799B8FB00402393 /* Other */,
+				FAD8FA2D2799B8F400402393 /* Localize */,
+				FAD8FA2C2799B8EE00402393 /* Router */,
+				FAD8FA2B2799B8E000402393 /* Entity */,
+				FAD8FA2A2799B8D600402393 /* Presenter */,
+				FAD8FA292799B8C500402393 /* Interactor */,
+				FAD8FA272799B8B300402393 /* View */,
+			);
+			path = MainModule;
+			sourceTree = "<group>";
+		};
+		FAD8FA272799B8B300402393 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FAD8FA182799B32B00402393 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FAD8FA292799B8C500402393 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		FAD8FA2A2799B8D600402393 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		FAD8FA2B2799B8E000402393 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		FAD8FA2C2799B8EE00402393 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		FAD8FA2D2799B8F400402393 /* Localize */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Localize;
+			sourceTree = "<group>";
+		};
+		FAD8FA2E2799B8FB00402393 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				FAD8FA202799B33000402393 /* Info.plist */,
+				FAD8FA1B2799B33000402393 /* Assets.xcassets */,
+				FAD8FA1D2799B33000402393 /* LaunchScreen.storyboard */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		FAD8FA2F2799B98000402393 /* AppSceneDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				FAD8FA142799B32B00402393 /* SceneDelegate.swift */,
+				FAD8FA122799B32B00402393 /* AppDelegate.swift */,
+			);
+			path = AppSceneDelegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +206,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAD8FA172799B32B00402393 /* ViewController.swift in Sources */,
 				FAD8FA132799B32B00402393 /* AppDelegate.swift in Sources */,
 				FAD8FA152799B32B00402393 /* SceneDelegate.swift in Sources */,
 			);
@@ -288,7 +356,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ZD26S5Y8Y;
-				INFOPLIST_FILE = "Clima-Viper/Info.plist";
+				"INFOPLIST_FILE[sdk=*]" = "Clima-Viper/MainModule/Other/info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,7 +375,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ZD26S5Y8Y;
-				INFOPLIST_FILE = "Clima-Viper/Info.plist";
+				"INFOPLIST_FILE[sdk=*]" = "Clima-Viper/MainModule/Other/info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
