@@ -64,7 +64,6 @@
 			children = (
 				FAD8FA2F2799B98000402393 /* AppSceneDelegate */,
 				FAD8FA2E2799B8FB00402393 /* Other */,
-				FAD8FA2D2799B8F400402393 /* Localize */,
 				FAD8FA2C2799B8EE00402393 /* Router */,
 				FAD8FA2B2799B8E000402393 /* Entity */,
 				FAD8FA2A2799B8D600402393 /* Presenter */,
@@ -108,13 +107,6 @@
 			children = (
 			);
 			path = Router;
-			sourceTree = "<group>";
-		};
-		FAD8FA2D2799B8F400402393 /* Localize */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Localize;
 			sourceTree = "<group>";
 		};
 		FAD8FA2E2799B8FB00402393 /* Other */ = {
