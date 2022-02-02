@@ -12,6 +12,11 @@
 		FAD8FA1A2799B32B00402393 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD8FA182799B32B00402393 /* Main.storyboard */; };
 		FAD8FA1C2799B33000402393 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD8FA1B2799B33000402393 /* Assets.xcassets */; };
 		FAD8FA1F2799B33000402393 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD8FA1D2799B33000402393 /* LaunchScreen.storyboard */; };
+		FADF61F027AA77D1006529B9 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF61EF27AA77D1006529B9 /* WeatherViewController.swift */; };
+		FADF61FA27AA8059006529B9 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF61F827AA8059006529B9 /* CollectionViewCell.swift */; };
+		FADF61FB27AA8059006529B9 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FADF61F927AA8059006529B9 /* CollectionViewCell.xib */; };
+		FADF61FE27AA8071006529B9 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF61FC27AA8071006529B9 /* TableViewCell.swift */; };
+		FADF61FF27AA8071006529B9 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FADF61FD27AA8071006529B9 /* TableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		FAD8FA1B2799B33000402393 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAD8FA1E2799B33000402393 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAD8FA202799B33000402393 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FADF61EF27AA77D1006529B9 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		FADF61F827AA8059006529B9 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		FADF61F927AA8059006529B9 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		FADF61FC27AA8071006529B9 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		FADF61FD27AA8071006529B9 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +64,9 @@
 		FAD8FA112799B32B00402393 /* Clima-Viper */ = {
 			isa = PBXGroup;
 			children = (
+				FAD8FA2E2799B8FB00402393 /* Other */,
+				FADF620027AA8B12006529B9 /* Storyboard */,
+				FAD8FA2F2799B98000402393 /* AppSceneDelegate */,
 				FAD8FA262799B8AD00402393 /* MainModule */,
 			);
 			path = "Clima-Viper";
@@ -62,13 +75,11 @@
 		FAD8FA262799B8AD00402393 /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
-				FAD8FA2F2799B98000402393 /* AppSceneDelegate */,
-				FAD8FA2E2799B8FB00402393 /* Other */,
-				FAD8FA2C2799B8EE00402393 /* Router */,
-				FAD8FA2B2799B8E000402393 /* Entity */,
-				FAD8FA2A2799B8D600402393 /* Presenter */,
-				FAD8FA292799B8C500402393 /* Interactor */,
 				FAD8FA272799B8B300402393 /* View */,
+				FAD8FA292799B8C500402393 /* Interactor */,
+				FAD8FA2A2799B8D600402393 /* Presenter */,
+				FAD8FA2B2799B8E000402393 /* Entity */,
+				FAD8FA2C2799B8EE00402393 /* Router */,
 			);
 			path = MainModule;
 			sourceTree = "<group>";
@@ -76,7 +87,9 @@
 		FAD8FA272799B8B300402393 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FAD8FA182799B32B00402393 /* Main.storyboard */,
+				FADF61F727AA802E006529B9 /* TableViewCell */,
+				FADF61F627AA8022006529B9 /* CollectionViewCell */,
+				FADF61F527AA8010006529B9 /* Controller */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -126,6 +139,40 @@
 				FAD8FA122799B32B00402393 /* AppDelegate.swift */,
 			);
 			path = AppSceneDelegate;
+			sourceTree = "<group>";
+		};
+		FADF61F527AA8010006529B9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FADF61EF27AA77D1006529B9 /* WeatherViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FADF61F627AA8022006529B9 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FADF61F827AA8059006529B9 /* CollectionViewCell.swift */,
+				FADF61F927AA8059006529B9 /* CollectionViewCell.xib */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		FADF61F727AA802E006529B9 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FADF61FC27AA8071006529B9 /* TableViewCell.swift */,
+				FADF61FD27AA8071006529B9 /* TableViewCell.xib */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		FADF620027AA8B12006529B9 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				FAD8FA182799B32B00402393 /* Main.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,7 +233,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAD8FA1F2799B33000402393 /* LaunchScreen.storyboard in Resources */,
+				FADF61FF27AA8071006529B9 /* TableViewCell.xib in Resources */,
 				FAD8FA1C2799B33000402393 /* Assets.xcassets in Resources */,
+				FADF61FB27AA8059006529B9 /* CollectionViewCell.xib in Resources */,
 				FAD8FA1A2799B32B00402393 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,7 +247,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FADF61FE27AA8071006529B9 /* TableViewCell.swift in Sources */,
 				FAD8FA132799B32B00402393 /* AppDelegate.swift in Sources */,
+				FADF61F027AA77D1006529B9 /* WeatherViewController.swift in Sources */,
+				FADF61FA27AA8059006529B9 /* CollectionViewCell.swift in Sources */,
 				FAD8FA152799B32B00402393 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

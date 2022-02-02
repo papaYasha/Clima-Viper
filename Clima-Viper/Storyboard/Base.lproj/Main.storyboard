@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Weather View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WeatherViewController" customModule="Clima_Viper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -266,6 +266,19 @@
                             <constraint firstItem="BZd-2m-RFq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zXO-cF-d3H"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cityLabel" destination="OPE-dX-Q2c" id="VDm-c9-633"/>
+                        <outlet property="collectionView" destination="LUQ-lf-rbq" id="IDp-Uv-vSG"/>
+                        <outlet property="currentLocationButton" destination="SiN-0a-khW" id="YJP-x6-ei0"/>
+                        <outlet property="degreeLabel" destination="cvV-8J-Zxs" id="0AD-Pn-vDo"/>
+                        <outlet property="searchButton" destination="7db-cL-S6k" id="Dlp-gD-gjl"/>
+                        <outlet property="sunriseLabel" destination="yrc-3Z-r5W" id="jvp-Fj-EnU"/>
+                        <outlet property="sunsetLabel" destination="bLT-Fb-F27" id="xYJ-ry-Anm"/>
+                        <outlet property="tableView" destination="bjc-B6-ZrE" id="rjE-WC-xS4"/>
+                        <outlet property="textField" destination="zWv-pV-fXp" id="ffC-42-RCt"/>
+                        <outlet property="weatherConditionImage" destination="8WR-sX-a0S" id="WHj-iY-hO0"/>
+                        <outlet property="windSpeedLabel" destination="FCf-U2-yHj" id="1o7-iN-zLw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
