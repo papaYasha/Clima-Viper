@@ -39,6 +39,9 @@
                                                                 </constraints>
                                                                 <color key="tintColor" systemColor="labelColor"/>
                                                                 <state key="normal" backgroundImage="location.circle.fill" catalog="system"/>
+                                                                <connections>
+                                                                    <action selector="currentLocationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FHp-Mj-DK1"/>
+                                                                </connections>
                                                             </button>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a city name" textAlignment="right" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="zWv-pV-fXp">
                                                                 <rect key="frame" x="50" y="0.0" width="274" height="40"/>
@@ -54,6 +57,9 @@
                                                                 </constraints>
                                                                 <color key="tintColor" systemColor="labelColor"/>
                                                                 <state key="normal" backgroundImage="magnifyingglass" catalog="system"/>
+                                                                <connections>
+                                                                    <action selector="searchButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zN6-co-54A"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>

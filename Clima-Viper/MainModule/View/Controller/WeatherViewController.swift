@@ -7,8 +7,14 @@
 
 import UIKit
 
-class WeatherViewController: UIViewController {
+protocol WeatherViewControllerInput {
+    
+}
 
+class WeatherViewControllerOutput: UIViewController {
+
+    //MARK: - IBOutlets
+    
     @IBOutlet weak var currentLocationButton: UIButton!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
@@ -21,10 +27,14 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var weatherConditionImage: UIImageView!
         
+    //MARK: - ViewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         config()
     }
+    
+    //MARK: - Functions
     
     private func config() {
         createDelegateAndDataSource()
@@ -54,9 +64,22 @@ class WeatherViewController: UIViewController {
         collectionView.layer.borderWidth = 2
         collectionView.layer.borderColor = UIColor.lightGray.cgColor
     }
+    
+    //MARK: - IBActions
+    
+    @IBAction func currentLocationButtonPressed(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func searchButtonPressed(_ sender: UIButton) {
+        
+    }
+    
 }
 
-extension WeatherViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+//MARK: - CollectionView Delegate & Data Source
+
+extension WeatherViewControllerOutput: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 20
@@ -68,7 +91,9 @@ extension WeatherViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
 }
 
-extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
+//MARK: - TableView Delegate & Data Source
+
+extension WeatherViewControllerOutput: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 7

@@ -17,6 +17,11 @@
 		FADF61FB27AA8059006529B9 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FADF61F927AA8059006529B9 /* CollectionViewCell.xib */; };
 		FADF61FE27AA8071006529B9 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF61FC27AA8071006529B9 /* TableViewCell.swift */; };
 		FADF61FF27AA8071006529B9 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FADF61FD27AA8071006529B9 /* TableViewCell.xib */; };
+		FADF622D27AABA8A006529B9 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF622C27AABA8A006529B9 /* WeatherData.swift */; };
+		FADF622F27AABAB9006529B9 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF622E27AABAB9006529B9 /* WeatherModel.swift */; };
+		FADF623127AABE9E006529B9 /* WeatherInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF623027AABE9E006529B9 /* WeatherInteractor.swift */; };
+		FADF623327AABEF1006529B9 /* WeatherPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF623227AABEF1006529B9 /* WeatherPresenter.swift */; };
+		FADF623527AABFA1006529B9 /* WeatherRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF623427AABFA1006529B9 /* WeatherRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,11 @@
 		FADF61F927AA8059006529B9 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		FADF61FC27AA8071006529B9 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		FADF61FD27AA8071006529B9 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		FADF622C27AABA8A006529B9 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
+		FADF622E27AABAB9006529B9 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		FADF623027AABE9E006529B9 /* WeatherInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInteractor.swift; sourceTree = "<group>"; };
+		FADF623227AABEF1006529B9 /* WeatherPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPresenter.swift; sourceTree = "<group>"; };
+		FADF623427AABFA1006529B9 /* WeatherRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +107,7 @@
 		FAD8FA292799B8C500402393 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				FADF623027AABE9E006529B9 /* WeatherInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -104,6 +115,7 @@
 		FAD8FA2A2799B8D600402393 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				FADF623227AABEF1006529B9 /* WeatherPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -111,6 +123,8 @@
 		FAD8FA2B2799B8E000402393 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				FADF622C27AABA8A006529B9 /* WeatherData.swift */,
+				FADF622E27AABAB9006529B9 /* WeatherModel.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -118,6 +132,7 @@
 		FAD8FA2C2799B8EE00402393 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				FADF623427AABFA1006529B9 /* WeatherRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -248,10 +263,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				FADF61FE27AA8071006529B9 /* TableViewCell.swift in Sources */,
+				FADF623527AABFA1006529B9 /* WeatherRouter.swift in Sources */,
+				FADF623327AABEF1006529B9 /* WeatherPresenter.swift in Sources */,
 				FAD8FA132799B32B00402393 /* AppDelegate.swift in Sources */,
 				FADF61F027AA77D1006529B9 /* WeatherViewController.swift in Sources */,
+				FADF622F27AABAB9006529B9 /* WeatherModel.swift in Sources */,
 				FADF61FA27AA8059006529B9 /* CollectionViewCell.swift in Sources */,
 				FAD8FA152799B32B00402393 /* SceneDelegate.swift in Sources */,
+				FADF623127AABE9E006529B9 /* WeatherInteractor.swift in Sources */,
+				FADF622D27AABA8A006529B9 /* WeatherData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,7 +420,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ZD26S5Y8Y;
-				"INFOPLIST_FILE[sdk=*]" = "Clima-Viper/MainModule/Other/info.plist";
+				INFOPLIST_FILE = "Clima-Viper/Other/info.plist";
+				"INFOPLIST_FILE[sdk=*]" = "Clima-Viper/Other/info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -419,7 +440,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ZD26S5Y8Y;
-				"INFOPLIST_FILE[sdk=*]" = "Clima-Viper/MainModule/Other/info.plist";
+				INFOPLIST_FILE = "Clima-Viper/Other/info.plist";
+				"INFOPLIST_FILE[sdk=*]" = "Clima-Viper/Other/info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
