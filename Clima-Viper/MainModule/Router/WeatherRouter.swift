@@ -7,10 +7,9 @@
 
 import UIKit
 
-protocol WeatherRouterInput {
-    
-}
+typealias EntryPoint = WeatherView & UIViewController
 
-protocol WeatherRouterOutput: WeatherRouterInput {
-    
+protocol WeatherRouter {
+    var entry: EntryPoint?{ get }
+    static func startExecution() -> WeatherRouter
 }

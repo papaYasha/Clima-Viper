@@ -13,10 +13,13 @@ class TableViewCell: UITableViewCell {
     
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var iconImage: UIImageView!
-    @IBOutlet weak var minTempLable: UILabel!
+    @IBOutlet weak var minTempLabel: UILabel!
     @IBOutlet weak var maxTempLabel: UILabel!
     
-    func config() {
-        
+    func config(with model: WeatherModelDaily) {
+        dayLabel.text = model.time
+        iconImage.image = UIImage(systemName: model.conditionName)
+        minTempLabel.text = model.minTemperatureString
+        maxTempLabel.text = model.maxTemperatureString
     }
 }

@@ -22,6 +22,12 @@
 		FADF623127AABE9E006529B9 /* WeatherInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF623027AABE9E006529B9 /* WeatherInteractor.swift */; };
 		FADF623327AABEF1006529B9 /* WeatherPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF623227AABEF1006529B9 /* WeatherPresenter.swift */; };
 		FADF623527AABFA1006529B9 /* WeatherRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF623427AABFA1006529B9 /* WeatherRouter.swift */; };
+		FADF623727ABC6F2006529B9 /* WeatherInteractorImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF623627ABC6F2006529B9 /* WeatherInteractorImp.swift */; };
+		FADF623C27ABC932006529B9 /* CLLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF623B27ABC932006529B9 /* CLLocationService.swift */; };
+		FADF623E27ABD95A006529B9 /* WeatherPresenterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF623D27ABD95A006529B9 /* WeatherPresenterImp.swift */; };
+		FADF624027AC099E006529B9 /* WeatherRouterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF623F27AC099E006529B9 /* WeatherRouterImp.swift */; };
+		FADF624227AC0C18006529B9 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF624127AC0C18006529B9 /* WeatherView.swift */; };
+		FADF624527AC1017006529B9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF624427AC1017006529B9 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +48,12 @@
 		FADF623027AABE9E006529B9 /* WeatherInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInteractor.swift; sourceTree = "<group>"; };
 		FADF623227AABEF1006529B9 /* WeatherPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPresenter.swift; sourceTree = "<group>"; };
 		FADF623427AABFA1006529B9 /* WeatherRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRouter.swift; sourceTree = "<group>"; };
+		FADF623627ABC6F2006529B9 /* WeatherInteractorImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInteractorImp.swift; sourceTree = "<group>"; };
+		FADF623B27ABC932006529B9 /* CLLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationService.swift; sourceTree = "<group>"; };
+		FADF623D27ABD95A006529B9 /* WeatherPresenterImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPresenterImp.swift; sourceTree = "<group>"; };
+		FADF623F27AC099E006529B9 /* WeatherRouterImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRouterImp.swift; sourceTree = "<group>"; };
+		FADF624127AC0C18006529B9 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		FADF624427AC1017006529B9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +97,8 @@
 		FAD8FA262799B8AD00402393 /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
+				FADF624327AC1001006529B9 /* MainModuleConstants */,
+				FADF623827ABC818006529B9 /* Service */,
 				FAD8FA272799B8B300402393 /* View */,
 				FAD8FA292799B8C500402393 /* Interactor */,
 				FAD8FA2A2799B8D600402393 /* Presenter */,
@@ -108,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				FADF623027AABE9E006529B9 /* WeatherInteractor.swift */,
+				FADF623627ABC6F2006529B9 /* WeatherInteractorImp.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -116,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				FADF623227AABEF1006529B9 /* WeatherPresenter.swift */,
+				FADF623D27ABD95A006529B9 /* WeatherPresenterImp.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -133,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				FADF623427AABFA1006529B9 /* WeatherRouter.swift */,
+				FADF623F27AC099E006529B9 /* WeatherRouterImp.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -160,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				FADF61EF27AA77D1006529B9 /* WeatherViewController.swift */,
+				FADF624127AC0C18006529B9 /* WeatherView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -188,6 +206,22 @@
 				FAD8FA182799B32B00402393 /* Main.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		FADF623827ABC818006529B9 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				FADF623B27ABC932006529B9 /* CLLocationService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		FADF624327AC1001006529B9 /* MainModuleConstants */ = {
+			isa = PBXGroup;
+			children = (
+				FADF624427AC1017006529B9 /* Constants.swift */,
+			);
+			path = MainModuleConstants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,12 +296,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FADF624027AC099E006529B9 /* WeatherRouterImp.swift in Sources */,
 				FADF61FE27AA8071006529B9 /* TableViewCell.swift in Sources */,
 				FADF623527AABFA1006529B9 /* WeatherRouter.swift in Sources */,
 				FADF623327AABEF1006529B9 /* WeatherPresenter.swift in Sources */,
+				FADF623C27ABC932006529B9 /* CLLocationService.swift in Sources */,
 				FAD8FA132799B32B00402393 /* AppDelegate.swift in Sources */,
 				FADF61F027AA77D1006529B9 /* WeatherViewController.swift in Sources */,
+				FADF624527AC1017006529B9 /* Constants.swift in Sources */,
+				FADF624227AC0C18006529B9 /* WeatherView.swift in Sources */,
+				FADF623E27ABD95A006529B9 /* WeatherPresenterImp.swift in Sources */,
 				FADF622F27AABAB9006529B9 /* WeatherModel.swift in Sources */,
+				FADF623727ABC6F2006529B9 /* WeatherInteractorImp.swift in Sources */,
 				FADF61FA27AA8059006529B9 /* CollectionViewCell.swift in Sources */,
 				FAD8FA152799B32B00402393 /* SceneDelegate.swift in Sources */,
 				FADF623127AABE9E006529B9 /* WeatherInteractor.swift in Sources */,

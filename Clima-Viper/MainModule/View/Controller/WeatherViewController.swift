@@ -6,17 +6,15 @@
 //
 
 import UIKit
+import CoreLocation
 
-protocol WeatherViewControllerInput {
-    
-}
 
-class WeatherViewControllerOutput: UIViewController {
+class WeatherViewController: UIViewController, WeatherView {
 
     //MARK: - IBOutlets
     
     @IBOutlet weak var currentLocationButton: UIButton!
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var degreeLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
@@ -26,7 +24,12 @@ class WeatherViewControllerOutput: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var weatherConditionImage: UIImageView!
-        
+    @IBOutlet weak var leadingViewMainInfo: UIView!
+    
+    var weatherModel: WeatherModel?
+    var locationManager = CLLocationManager()
+    var presenter: WeatherPresenter?
+    
     //MARK: - ViewDidLoad
     
     override func viewDidLoad() {
@@ -38,15 +41,19 @@ class WeatherViewControllerOutput: UIViewController {
     
     private func config() {
         createDelegateAndDataSource()
+        configCoreLocation()
         configTableView()
         configCollectionView()
+        configLeadingViewMainInfo()
     }
     
     private func createDelegateAndDataSource() {
+        locationManager.delegate = self
         collectionView.delegate = self
         collectionView.dataSource = self
         tableView.delegate = self
         tableView.dataSource = self
+        searchTextField.delegate = self
     }
     
     private func configTableView() {
@@ -65,42 +72,89 @@ class WeatherViewControllerOutput: UIViewController {
         collectionView.layer.borderColor = UIColor.lightGray.cgColor
     }
     
+    private func configLeadingViewMainInfo() {
+        leadingViewMainInfo.layer.borderWidth = 2
+        leadingViewMainInfo.layer.borderColor = UIColor.lightGray.cgColor
+    }
+    
+    
+    private func configCoreLocation() {
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
+    }
+    
+    private func showAlert() {
+        func showAlert() {
+            let alert = UIAlertController(title: "No results found for \"\(searchTextField.text ?? "non-existing city")\"", message: nil, preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                print("You choose OK")
+            }))
+            self.present(alert, animated: true)
+        }
+    }
+    
+    func didUpdateWeather(with model: WeatherModel) {
+        DispatchQueue.main.async {
+            self.weatherModel = model
+            self.cityLabel.text = model.city
+            self.weatherConditionImage.image = UIImage(systemName: model.conditionName)
+            self.windSpeedLabel.text = String(model.windSpeed)
+            self.sunriseLabel.text = model.sunrise
+            self.sunsetLabel.text = model.sunset
+            self.degreeLabel.text = model.temperatureString
+            self.tableView.reloadData()
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func didUpdateWeather(with error: String) {
+        DispatchQueue.main.async {
+            self.showAlert()
+        }
+    }
+
     //MARK: - IBActions
     
     @IBAction func currentLocationButtonPressed(_ sender: UIButton) {
-        
+        locationManager.requestLocation()
     }
     
     @IBAction func searchButtonPressed(_ sender: UIButton) {
-        
+        searchTextField.endEditing(true)
     }
-    
 }
 
 //MARK: - CollectionView Delegate & Data Source
 
-extension WeatherViewControllerOutput: UICollectionViewDelegate, UICollectionViewDataSource {
+extension WeatherViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return  weatherModel?.hourly.count ?? 24
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as? CollectionViewCell else { return UICollectionViewCell() }
+        if let safeWeatherModel = weatherModel {
+            cell.config(with: safeWeatherModel.hourly[indexPath.row])
+        }
         return cell
     }
 }
 
 //MARK: - TableView Delegate & Data Source
 
-extension WeatherViewControllerOutput: UITableViewDelegate, UITableViewDataSource {
+extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return weatherModel?.daily.count ?? 7
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as? TableViewCell else { return UITableViewCell() }
+        if let safeWeatherModel = weatherModel {
+            cell.config(with: safeWeatherModel.daily[indexPath.row])
+        }
         return cell
     }
     
@@ -109,6 +163,55 @@ extension WeatherViewControllerOutput: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60.0
+        return Constants.tableViewRowHeight
     }
 }
+
+//MARK: - TextField Delegate
+
+extension WeatherViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTextField.endEditing(true)
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        searchTextField.text = ""
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if searchTextField.text != "" {
+            return true
+        } else {
+            searchTextField.placeholder = "Type something"
+            return false
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        if let city = searchTextField.text {
+            presenter?.interactor?.fetchWeather(city: city)
+        }
+        searchTextField.text = ""
+    }
+}
+
+//MARK: - Location Delegate
+
+extension WeatherViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            locationManager.stopUpdatingLocation()
+            let lat = location.coordinate.latitude
+            let lon = location.coordinate.longitude
+            print(lat,lon)
+            presenter?.interactor?.fetchWeather(location: location)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+}
+
+

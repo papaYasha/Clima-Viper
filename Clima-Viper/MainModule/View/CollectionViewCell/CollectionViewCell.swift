@@ -15,8 +15,9 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var degreeLabel: UILabel!
     
-    func config() {
-        
+    func config(with model: WeatherModelHourly) {
+        timeLabel.text = model.time
+        degreeLabel.text = model.temperatureString
+        iconImage.image = UIImage(systemName: model.conditionName)
     }
-
 }

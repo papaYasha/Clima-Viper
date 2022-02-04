@@ -6,16 +6,17 @@
 //
 
 import UIKit
+import CoreLocation
 
 enum NetworkError: Error {
-    case NetworkFailed
+    case NetworkFiled
     case ParsingFailed
 }
 
-protocol WeatherPresenterInput {
+protocol WeatherPresenter {
+    var router: WeatherRouter? { get set }
+    var interactor: WeatherInteractor? { get set }
+    var view: WeatherView? { get set }
     
-}
-
-protocol WeatherPresenterOutput: WeatherPresenterInput {
-    
+    func interactorDidDownloadWeather(result: Result<WeatherModel, Error>)
 }
