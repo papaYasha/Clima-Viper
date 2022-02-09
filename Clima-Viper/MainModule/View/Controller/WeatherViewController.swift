@@ -10,7 +10,7 @@ import CoreLocation
 
 
 class WeatherViewController: UIViewController, WeatherView {
-
+    
     //MARK: - IBOutlets
     
     @IBOutlet weak var currentLocationButton: UIButton!
@@ -29,6 +29,7 @@ class WeatherViewController: UIViewController, WeatherView {
     var weatherModel: WeatherModel?
     var locationManager = CLLocationManager()
     var presenter: WeatherPresenter?
+    let defaults = UserDefaults.standard
     
     //MARK: - ViewDidLoad
     
@@ -46,6 +47,7 @@ class WeatherViewController: UIViewController, WeatherView {
         configCollectionView()
         configLeadingViewMainInfo()
         configPresenter()
+//        readData()
     }
     
     private func createDelegateAndDataSource() {
@@ -99,7 +101,7 @@ class WeatherViewController: UIViewController, WeatherView {
         interactor.presenter = preseneter
         self.presenter = preseneter
     }
-
+    
     private func showAlert(error: String, city: String) {
         let alert = UIAlertController(title: "No results found for \"\(city)\"", message: error, preferredStyle: .alert)
         
@@ -108,7 +110,25 @@ class WeatherViewController: UIViewController, WeatherView {
         }))
         self.present(alert, animated: true)
     }
-        
+    
+    //MARK: - UserDefaults
+    
+//    private func saveData() {
+//        defaults.setValue(cityLabel.text, forKey: "city")
+//        defaults.setValue(degreeLabel.text, forKey: "degree")
+//        defaults.setValue(sunsetLabel.text, forKey: "sunset")
+//        defaults.setValue(sunriseLabel.text, forKey: "sunrise")
+//        defaults.setValue(windSpeedLabel.text, forKey: "w/s")
+//    }
+    
+//    private func readData() {
+//        cityLabel.text = defaults.string(forKey: "city")
+//        degreeLabel.text = defaults.string(forKey: "degree")
+//        sunsetLabel.text = defaults.string(forKey: "sunset")
+//        sunriseLabel.text = defaults.string(forKey: "sunrise")
+//        windSpeedLabel.text = defaults.string(forKey: "w/s")
+//    }
+    
     //MARK: - Functions
     
     func didUpdateWeather(with model: WeatherModel) {
@@ -123,6 +143,7 @@ class WeatherViewController: UIViewController, WeatherView {
             strongSelf.degreeLabel.text = model.temperatureString
             strongSelf.tableView.reloadData()
             strongSelf.collectionView.reloadData()
+            //            saveData()
         }
     }
     
@@ -132,7 +153,7 @@ class WeatherViewController: UIViewController, WeatherView {
             strongSelf.showAlert(error: error, city: city)
         }
     }
-
+    
     //MARK: - IBActions
     
     @IBAction func currentLocationButtonPressed(_ sender: UIButton) {
