@@ -9,7 +9,7 @@ import UIKit
 
 //MARK: - WeatherModelCurrent
 
-struct WeatherModel {
+struct WeatherModel: Codable {
     let conditionID: Int
     let temperature: Double
     var city: String = ""
@@ -31,7 +31,7 @@ struct WeatherModel {
 
 //MARK: - WeatherModelDaily
 
-struct WeatherModelDaily {
+struct WeatherModelDaily: Codable {
     let time: String
     let minTemp: Double
     let maxTemp: Double
@@ -68,7 +68,7 @@ struct WeatherModelDaily {
 
 //MARK: - WeatherModelHourly
 
-struct WeatherModelHourly {
+struct WeatherModelHourly: Codable {
     let temp: Double
     let time: String
     let conditionID: Int

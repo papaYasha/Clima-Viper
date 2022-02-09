@@ -37,7 +37,7 @@ class WeatherViewController: UIViewController, WeatherView {
         config()
     }
     
-    //MARK: - Functions
+    //MARK: - Private functions
     
     private func config() {
         createDelegateAndDataSource()
@@ -45,6 +45,7 @@ class WeatherViewController: UIViewController, WeatherView {
         configTableView()
         configCollectionView()
         configLeadingViewMainInfo()
+        configPresenter()
     }
     
     private func createDelegateAndDataSource() {
@@ -83,34 +84,52 @@ class WeatherViewController: UIViewController, WeatherView {
         locationManager.requestLocation()
     }
     
-    private func showAlert() {
-        func showAlert() {
-            let alert = UIAlertController(title: "No results found for \"\(searchTextField.text ?? "non-existing city")\"", message: nil, preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                print("You choose OK")
-            }))
-            self.present(alert, animated: true)
-        }
+    private func configPresenter() {
+        let router = WeatherRouterImp()
+        let view = self
+        let preseneter = WeatherPresenterImp()
+        let interactor = WeatherInteractorImp()
+        let locationServer = CLLocationService()
+        
+        view.presenter = preseneter
+        preseneter.view = view
+        preseneter.router = router
+        preseneter.interactor = interactor
+        preseneter.interactor?.locationService = locationServer
+        interactor.presenter = preseneter
+        self.presenter = preseneter
     }
+
+    private func showAlert(error: String, city: String) {
+        let alert = UIAlertController(title: "No results found for \"\(city)\"", message: error, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            print("You choose OK")
+        }))
+        self.present(alert, animated: true)
+    }
+        
+    //MARK: - Functions
     
     func didUpdateWeather(with model: WeatherModel) {
-        DispatchQueue.main.async {
-            self.weatherModel = model
-            self.cityLabel.text = model.city
-            self.weatherConditionImage.image = UIImage(systemName: model.conditionName)
-            self.windSpeedLabel.text = String(model.windSpeed)
-            self.sunriseLabel.text = model.sunrise
-            self.sunsetLabel.text = model.sunset
-            self.degreeLabel.text = model.temperatureString
-            self.tableView.reloadData()
-            self.collectionView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.weatherModel = model
+            strongSelf.cityLabel.text = model.city
+            strongSelf.weatherConditionImage.image = UIImage(systemName: model.conditionName)
+            strongSelf.windSpeedLabel.text = String(model.windSpeed)
+            strongSelf.sunriseLabel.text = model.sunrise
+            strongSelf.sunsetLabel.text = model.sunset
+            strongSelf.degreeLabel.text = model.temperatureString
+            strongSelf.tableView.reloadData()
+            strongSelf.collectionView.reloadData()
         }
     }
     
-    func didUpdateWeather(with error: String) {
-        DispatchQueue.main.async {
-            self.showAlert()
+    func didUpdateWeather(with error: String, city: String) {
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.showAlert(error: error, city: city)
         }
     }
 
@@ -190,7 +209,8 @@ extension WeatherViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         if let city = searchTextField.text {
-            presenter?.interactor?.fetchWeather(city: city)
+            let text = city.filter { $0 != " " }
+            presenter?.interactor?.fetchWeather(city: text)
         }
         searchTextField.text = ""
     }

@@ -9,9 +9,10 @@ import UIKit
 import CoreLocation
 
 final class WeatherInteractorImp: WeatherInteractor {
-        
+    
     var presenter: WeatherPresenter?
     var locationService: CLLocationService?
+    var storageService: SharedStorage?
     
     func performRequest(with urlString: String, city: String) {
         //1. Create a URL
@@ -23,18 +24,14 @@ final class WeatherInteractorImp: WeatherInteractor {
             //3. Give the session a task
             let task = session.dataTask(with: url) { [weak self] data, response, error in
                 if error != nil {
-                    //if userDefaults.isEmpty { didFailWithError } else {
-                    //userDefaults.getValue(weatherModel)
-                    //delegate.didUpdateWeather
-                    //}
-                    self?.presenter?.interactorDidDownloadWeather(result: .failure(NetworkError.NetworkFiled))
+                    self?.presenter?.interactorDidDownloadWeather(result: .failure(NetworkError.NetworkFiled), city: "")
                     return
                 }
                 
                 if let safeData = data {
                     if var weather = self?.parseJSON(safeData) {
                         weather.city = city
-                        self?.presenter?.interactorDidDownloadWeather(result: .success(weather))
+                        self?.presenter?.interactorDidDownloadWeather(result: .success(weather), city: "")
                     }
                 }
             }
@@ -57,7 +54,7 @@ final class WeatherInteractorImp: WeatherInteractor {
             let weather = WeatherModel(conditionID: currentID, temperature: currentTemp, sunrise: currentSunrise, sunset: currentSunset, windSpeed: currentWindSpeed, hourly: hourly, daily: daily)
             return weather
         } catch {
-            self.presenter?.interactorDidDownloadWeather(result: .failure(NetworkError.ParsingFailed))
+            self.presenter?.interactorDidDownloadWeather(result: .failure(error), city: "")
             return nil
         }
     }
@@ -73,12 +70,16 @@ final class WeatherInteractorImp: WeatherInteractor {
     }
     
     func fetchWeather(city: String) {
-        locationService?.getCoordinateFrom(address: city) { coordinate, error in
+        locationService?.getCoordinateFrom(address: city) { [weak self] coordinate, error in
+            guard let strongSelf = self else { return }
+            if let error = error {
+                strongSelf.presenter?.interactorDidDownloadWeather(result: .failure(error), city: city)
+            }
             guard let coordinate = coordinate, error == nil else { return }
             let lat = coordinate.latitude
             let lon = coordinate.longitude
             let urlString = "\(Constants.weatherURL)&lat=\(lat)&lon=\(lon)"
-            self.performRequest(with: urlString, city: city)
+            strongSelf.performRequest(with: urlString, city: city)
         }
     }
     

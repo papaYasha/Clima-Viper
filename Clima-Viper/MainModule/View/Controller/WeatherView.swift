@@ -11,5 +11,5 @@ protocol WeatherView {
     var presenter: WeatherPresenter? { get set }
     
     func didUpdateWeather(with model: WeatherModel)
-    func didUpdateWeather(with error: String)
+    func didUpdateWeather(with error: String, city: String)
 }

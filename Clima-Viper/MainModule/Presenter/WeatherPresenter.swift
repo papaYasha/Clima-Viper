@@ -18,5 +18,5 @@ protocol WeatherPresenter {
     var interactor: WeatherInteractor? { get set }
     var view: WeatherView? { get set }
     
-    func interactorDidDownloadWeather(result: Result<WeatherModel, Error>)
+    func interactorDidDownloadWeather(result: Result<WeatherModel, Error>, city: String)
 }

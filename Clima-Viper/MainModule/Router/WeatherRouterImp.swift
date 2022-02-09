@@ -25,7 +25,6 @@ final class WeatherRouterImp: WeatherRouter {
         preseneter.interactor = interactor
         interactor.presenter = preseneter
         
-        
         return router
     }
 }

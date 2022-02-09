@@ -97,13 +97,13 @@
 		FAD8FA262799B8AD00402393 /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
-				FADF624327AC1001006529B9 /* MainModuleConstants */,
-				FADF623827ABC818006529B9 /* Service */,
 				FAD8FA272799B8B300402393 /* View */,
 				FAD8FA292799B8C500402393 /* Interactor */,
 				FAD8FA2A2799B8D600402393 /* Presenter */,
 				FAD8FA2B2799B8E000402393 /* Entity */,
 				FAD8FA2C2799B8EE00402393 /* Router */,
+				FADF623827ABC818006529B9 /* Service */,
+				FADF624327AC1001006529B9 /* MainModuleConstants */,
 			);
 			path = MainModule;
 			sourceTree = "<group>";
