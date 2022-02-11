@@ -11,7 +11,7 @@ API: https://openweathermap.org
 
 ## Main Screen
 
-*Before the weather show current location requested by alert
+*Before the weather is showing, current location requested by alert
 
 ![mocapClima](https://user-images.githubusercontent.com/90447243/153580045-d3bd2223-210e-48e5-91ee-1365e45b75ea.png)
 
