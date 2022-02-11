@@ -12,19 +12,18 @@ final class WeatherRouterImp: WeatherRouter {
     
     static func startExecution() -> WeatherRouter {
         
-        
         let router = WeatherRouterImp()
         var view: WeatherView = WeatherViewController()
         var preseneter: WeatherPresenter = WeatherPresenterImp()
         var interactor: WeatherInteractor = WeatherInteractorImp()
         
         view.presenter = preseneter
-        
         preseneter.view = view
         preseneter.router = router
         preseneter.interactor = interactor
         interactor.presenter = preseneter
-        
+
+
         return router
     }
 }

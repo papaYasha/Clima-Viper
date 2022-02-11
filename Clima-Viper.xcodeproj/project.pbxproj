@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FAD8FA132799B32B00402393 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8FA122799B32B00402393 /* AppDelegate.swift */; };
-		FAD8FA152799B32B00402393 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8FA142799B32B00402393 /* SceneDelegate.swift */; };
+		FA80D4C027B43B1300A3AA1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80D4BE27B43B1300A3AA1C /* AppDelegate.swift */; };
+		FA80D4C127B43B1400A3AA1C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80D4BF27B43B1300A3AA1C /* SceneDelegate.swift */; };
 		FAD8FA1A2799B32B00402393 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD8FA182799B32B00402393 /* Main.storyboard */; };
 		FAD8FA1C2799B33000402393 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD8FA1B2799B33000402393 /* Assets.xcassets */; };
 		FAD8FA1F2799B33000402393 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD8FA1D2799B33000402393 /* LaunchScreen.storyboard */; };
@@ -31,9 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA80D4BE27B43B1300A3AA1C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FA80D4BF27B43B1300A3AA1C /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FAD8FA0F2799B32B00402393 /* Clima-Viper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clima-Viper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAD8FA122799B32B00402393 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FAD8FA142799B32B00402393 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FAD8FA192799B32B00402393 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAD8FA1B2799B33000402393 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAD8FA1E2799B33000402393 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -67,6 +67,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA80D4BD27B43AA100A3AA1C /* AppSceneDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				FA80D4BE27B43B1300A3AA1C /* AppDelegate.swift */,
+				FA80D4BF27B43B1300A3AA1C /* SceneDelegate.swift */,
+			);
+			path = AppSceneDelegate;
+			sourceTree = "<group>";
+		};
 		FAD8FA062799B32B00402393 = {
 			isa = PBXGroup;
 			children = (
@@ -86,9 +95,9 @@
 		FAD8FA112799B32B00402393 /* Clima-Viper */ = {
 			isa = PBXGroup;
 			children = (
+				FA80D4BD27B43AA100A3AA1C /* AppSceneDelegate */,
 				FAD8FA2E2799B8FB00402393 /* Other */,
 				FADF620027AA8B12006529B9 /* Storyboard */,
-				FAD8FA2F2799B98000402393 /* AppSceneDelegate */,
 				FAD8FA262799B8AD00402393 /* MainModule */,
 			);
 			path = "Clima-Viper";
@@ -162,15 +171,6 @@
 				FAD8FA1D2799B33000402393 /* LaunchScreen.storyboard */,
 			);
 			path = Other;
-			sourceTree = "<group>";
-		};
-		FAD8FA2F2799B98000402393 /* AppSceneDelegate */ = {
-			isa = PBXGroup;
-			children = (
-				FAD8FA142799B32B00402393 /* SceneDelegate.swift */,
-				FAD8FA122799B32B00402393 /* AppDelegate.swift */,
-			);
-			path = AppSceneDelegate;
 			sourceTree = "<group>";
 		};
 		FADF61F527AA8010006529B9 /* Controller */ = {
@@ -299,17 +299,17 @@
 				FADF624027AC099E006529B9 /* WeatherRouterImp.swift in Sources */,
 				FADF61FE27AA8071006529B9 /* TableViewCell.swift in Sources */,
 				FADF623527AABFA1006529B9 /* WeatherRouter.swift in Sources */,
+				FA80D4C027B43B1300A3AA1C /* AppDelegate.swift in Sources */,
 				FADF623327AABEF1006529B9 /* WeatherPresenter.swift in Sources */,
 				FADF623C27ABC932006529B9 /* CLLocationService.swift in Sources */,
-				FAD8FA132799B32B00402393 /* AppDelegate.swift in Sources */,
 				FADF61F027AA77D1006529B9 /* WeatherViewController.swift in Sources */,
+				FA80D4C127B43B1400A3AA1C /* SceneDelegate.swift in Sources */,
 				FADF624527AC1017006529B9 /* Constants.swift in Sources */,
 				FADF624227AC0C18006529B9 /* WeatherView.swift in Sources */,
 				FADF623E27ABD95A006529B9 /* WeatherPresenterImp.swift in Sources */,
 				FADF622F27AABAB9006529B9 /* WeatherModel.swift in Sources */,
 				FADF623727ABC6F2006529B9 /* WeatherInteractorImp.swift in Sources */,
 				FADF61FA27AA8059006529B9 /* CollectionViewCell.swift in Sources */,
-				FAD8FA152799B32B00402393 /* SceneDelegate.swift in Sources */,
 				FADF623127AABE9E006529B9 /* WeatherInteractor.swift in Sources */,
 				FADF622D27AABA8A006529B9 /* WeatherData.swift in Sources */,
 			);
@@ -388,7 +388,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -443,7 +443,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

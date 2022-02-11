@@ -12,7 +12,6 @@ final class WeatherInteractorImp: WeatherInteractor {
     
     var presenter: WeatherPresenter?
     var locationService: CLLocationService?
-    var storageService: SharedStorage?
     
     func performRequest(with urlString: String, city: String) {
         //1. Create a URL

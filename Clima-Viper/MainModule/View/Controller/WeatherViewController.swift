@@ -29,7 +29,6 @@ class WeatherViewController: UIViewController, WeatherView {
     var weatherModel: WeatherModel?
     var locationManager = CLLocationManager()
     var presenter: WeatherPresenter?
-    let defaults = UserDefaults.standard
     
     //MARK: - ViewDidLoad
     
@@ -47,7 +46,6 @@ class WeatherViewController: UIViewController, WeatherView {
         configCollectionView()
         configLeadingViewMainInfo()
         configPresenter()
-//        readData()
     }
     
     private func createDelegateAndDataSource() {
@@ -80,7 +78,6 @@ class WeatherViewController: UIViewController, WeatherView {
         leadingViewMainInfo.layer.borderColor = UIColor.lightGray.cgColor
     }
     
-    
     private func configCoreLocation() {
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
@@ -92,7 +89,7 @@ class WeatherViewController: UIViewController, WeatherView {
         let preseneter = WeatherPresenterImp()
         let interactor = WeatherInteractorImp()
         let locationServer = CLLocationService()
-        
+
         view.presenter = preseneter
         preseneter.view = view
         preseneter.router = router
@@ -111,24 +108,6 @@ class WeatherViewController: UIViewController, WeatherView {
         self.present(alert, animated: true)
     }
     
-    //MARK: - UserDefaults
-    
-//    private func saveData() {
-//        defaults.setValue(cityLabel.text, forKey: "city")
-//        defaults.setValue(degreeLabel.text, forKey: "degree")
-//        defaults.setValue(sunsetLabel.text, forKey: "sunset")
-//        defaults.setValue(sunriseLabel.text, forKey: "sunrise")
-//        defaults.setValue(windSpeedLabel.text, forKey: "w/s")
-//    }
-    
-//    private func readData() {
-//        cityLabel.text = defaults.string(forKey: "city")
-//        degreeLabel.text = defaults.string(forKey: "degree")
-//        sunsetLabel.text = defaults.string(forKey: "sunset")
-//        sunriseLabel.text = defaults.string(forKey: "sunrise")
-//        windSpeedLabel.text = defaults.string(forKey: "w/s")
-//    }
-    
     //MARK: - Functions
     
     func didUpdateWeather(with model: WeatherModel) {
@@ -143,7 +122,6 @@ class WeatherViewController: UIViewController, WeatherView {
             strongSelf.degreeLabel.text = model.temperatureString
             strongSelf.tableView.reloadData()
             strongSelf.collectionView.reloadData()
-            //            saveData()
         }
     }
     
@@ -170,7 +148,7 @@ class WeatherViewController: UIViewController, WeatherView {
 extension WeatherViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return  weatherModel?.hourly.count ?? 24
+        return  weatherModel?.hourly.count ?? Constants.hourlyCountDefaultValue
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -187,7 +165,7 @@ extension WeatherViewController: UICollectionViewDelegate, UICollectionViewDataS
 extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return weatherModel?.daily.count ?? 7
+        return weatherModel?.daily.count ?? Constants.dailyCountDefaultValue
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -251,7 +229,7 @@ extension WeatherViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
+        print(error.localizedDescription)
     }
 }
 

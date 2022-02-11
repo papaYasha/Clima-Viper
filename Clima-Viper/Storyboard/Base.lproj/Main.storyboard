@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -47,7 +48,7 @@
                                                                 <rect key="frame" x="50" y="0.0" width="274" height="40"/>
                                                                 <color key="backgroundColor" systemColor="systemFillColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                             </textField>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7db-cL-S6k">
                                                                 <rect key="frame" x="334" y="1" width="40" height="38"/>
@@ -222,21 +223,41 @@
                                                     <constraint firstItem="yAV-yP-Vzj" firstAttribute="top" secondItem="36g-bR-1su" secondAttribute="top" id="2IM-8B-ZmL">
                                                         <variation key="heightClass=compact-widthClass=regular" constant="20"/>
                                                     </constraint>
-                                                    <constraint firstAttribute="trailing" secondItem="yAV-yP-Vzj" secondAttribute="trailing" constant="20" id="3oA-FN-oOk"/>
-                                                    <constraint firstAttribute="trailing" secondItem="LUQ-lf-rbq" secondAttribute="trailing" constant="20" id="4GT-Ds-gUZ"/>
-                                                    <constraint firstItem="bjc-B6-ZrE" firstAttribute="leading" secondItem="36g-bR-1su" secondAttribute="leading" constant="20" id="III-aF-bvG"/>
+                                                    <constraint firstAttribute="trailing" secondItem="yAV-yP-Vzj" secondAttribute="trailing" constant="20" id="3oA-FN-oOk">
+                                                        <variation key="heightClass=compact-widthClass=regular" constant="40"/>
+                                                    </constraint>
+                                                    <constraint firstAttribute="trailing" secondItem="LUQ-lf-rbq" secondAttribute="trailing" constant="20" id="4GT-Ds-gUZ">
+                                                        <variation key="heightClass=compact-widthClass=regular" constant="40"/>
+                                                    </constraint>
+                                                    <constraint firstItem="bjc-B6-ZrE" firstAttribute="leading" secondItem="36g-bR-1su" secondAttribute="leading" constant="20" id="III-aF-bvG">
+                                                        <variation key="heightClass=compact-widthClass=regular" constant="40"/>
+                                                    </constraint>
                                                     <constraint firstItem="bjc-B6-ZrE" firstAttribute="top" secondItem="LUQ-lf-rbq" secondAttribute="bottom" constant="10" id="Np9-NK-pqZ"/>
                                                     <constraint firstItem="GVd-8z-fOo" firstAttribute="centerY" secondItem="fmo-kn-J5D" secondAttribute="centerY" id="QLR-d8-BL9"/>
-                                                    <constraint firstAttribute="trailing" secondItem="OPE-dX-Q2c" secondAttribute="trailing" constant="20" id="S8E-Hu-8RX"/>
-                                                    <constraint firstAttribute="trailing" secondItem="GVd-8z-fOo" secondAttribute="trailing" constant="20" id="bmk-4k-lj8"/>
+                                                    <constraint firstAttribute="trailing" secondItem="OPE-dX-Q2c" secondAttribute="trailing" constant="20" id="S8E-Hu-8RX">
+                                                        <variation key="heightClass=compact-widthClass=regular" constant="40"/>
+                                                    </constraint>
+                                                    <constraint firstAttribute="trailing" secondItem="GVd-8z-fOo" secondAttribute="trailing" constant="20" id="bmk-4k-lj8">
+                                                        <variation key="heightClass=compact-widthClass=regular" constant="40"/>
+                                                    </constraint>
                                                     <constraint firstAttribute="bottom" secondItem="bjc-B6-ZrE" secondAttribute="bottom" constant="5" id="ejm-iv-BKf"/>
                                                     <constraint firstItem="fmo-kn-J5D" firstAttribute="top" secondItem="yAV-yP-Vzj" secondAttribute="bottom" constant="126" id="mav-eJ-IQ4"/>
-                                                    <constraint firstAttribute="trailing" secondItem="bjc-B6-ZrE" secondAttribute="trailing" constant="20" id="oFu-C2-hAI"/>
-                                                    <constraint firstItem="LUQ-lf-rbq" firstAttribute="leading" secondItem="36g-bR-1su" secondAttribute="leading" constant="20" id="ovW-fe-3nk"/>
-                                                    <constraint firstAttribute="trailing" secondItem="8WR-sX-a0S" secondAttribute="trailing" constant="20" id="pCb-fT-Png"/>
-                                                    <constraint firstItem="fmo-kn-J5D" firstAttribute="leading" secondItem="36g-bR-1su" secondAttribute="leading" constant="20" id="uZD-fE-INr"/>
+                                                    <constraint firstAttribute="trailing" secondItem="bjc-B6-ZrE" secondAttribute="trailing" constant="20" id="oFu-C2-hAI">
+                                                        <variation key="heightClass=compact-widthClass=regular" constant="40"/>
+                                                    </constraint>
+                                                    <constraint firstItem="LUQ-lf-rbq" firstAttribute="leading" secondItem="36g-bR-1su" secondAttribute="leading" constant="20" id="ovW-fe-3nk">
+                                                        <variation key="heightClass=compact-widthClass=regular" constant="40"/>
+                                                    </constraint>
+                                                    <constraint firstAttribute="trailing" secondItem="8WR-sX-a0S" secondAttribute="trailing" constant="20" id="pCb-fT-Png">
+                                                        <variation key="heightClass=compact-widthClass=regular" constant="40"/>
+                                                    </constraint>
+                                                    <constraint firstItem="fmo-kn-J5D" firstAttribute="leading" secondItem="36g-bR-1su" secondAttribute="leading" constant="20" id="uZD-fE-INr">
+                                                        <variation key="heightClass=compact-widthClass=regular" constant="40"/>
+                                                    </constraint>
                                                     <constraint firstItem="OPE-dX-Q2c" firstAttribute="top" secondItem="GVd-8z-fOo" secondAttribute="bottom" id="wgk-l1-s5b"/>
-                                                    <constraint firstItem="yAV-yP-Vzj" firstAttribute="leading" secondItem="36g-bR-1su" secondAttribute="leading" constant="20" id="zOc-FY-r6K"/>
+                                                    <constraint firstItem="yAV-yP-Vzj" firstAttribute="leading" secondItem="36g-bR-1su" secondAttribute="leading" constant="20" id="zOc-FY-r6K">
+                                                        <variation key="heightClass=compact-widthClass=regular" constant="40"/>
+                                                    </constraint>
                                                 </constraints>
                                             </view>
                                         </subviews>

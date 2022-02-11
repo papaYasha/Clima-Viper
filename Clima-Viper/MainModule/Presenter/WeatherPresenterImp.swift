@@ -11,9 +11,7 @@ import CoreLocation
 final class WeatherPresenterImp: WeatherPresenter {
     
     var router: WeatherRouter?
-    
     var interactor: WeatherInteractor?
-    
     var view: WeatherView?
     
     func interactorDidDownloadWeather(result: Result<WeatherModel, Error>, city: String) {

@@ -19,7 +19,6 @@ struct WeatherModel: Codable {
     let hourly: [WeatherModelHourly]
     let daily: [WeatherModelDaily]
     
-    
     var temperatureString: String {
         return String(Int(temperature))
     }
@@ -88,7 +87,7 @@ struct WeatherModelHourly: Codable {
     }
     
     
-   static func getTimeFromDate(_ date: Date?) -> String {
+    static func getTimeFromDate(_ date: Date?) -> String {
         guard let inputDate = date else {
             return ""
         }

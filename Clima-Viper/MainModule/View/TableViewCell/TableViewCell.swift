@@ -8,7 +8,7 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-
+    
     static let identifier = String(describing: TableViewCell.self)
     
     @IBOutlet weak var dayLabel: UILabel!
